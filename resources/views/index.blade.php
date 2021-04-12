@@ -43,9 +43,62 @@
 
     </div> {{-- end of flex --}}
 
-
-
+    <template>
+        <div class="max-w-md sm:max-w-xl lg:max-w-6xl mx-auto px-8 lg:px-12 py-8">
+            <h2 class="text-xl text-gray-900">Popular destionations</h2>
+            <p class="text-gray-600">A selection of great work-friendly cities with lots to see and explore</p>
+            <div class="flex flex-wrap -mx-4">
+                <div class="mt-6 w-full px-4 lg:w-1/2 xl:w-1/3" v-for="destination in popularDestinations"> <!--add after 1/3 v-for="destination in popularDestinations"-->
+                    <DestinationCard :destination="destination"/>
+                </div>
+            </div>
+        </div>
+    </template>
 
 
 </body>
 </html>
+<script type="module">
+    import DestinationCard from './js/components/DestinationCard'
+
+    export default {
+        name: 'app',
+        components:{
+            DestinationCard
+        },
+        data(){
+            return{
+                popularDestinations: [
+                    {
+                        city: 'Toronto',
+                        averagePrice: 120,
+                        propertyCount: 76,
+                        imageUrl: '',
+                        imageAlt: 'Toronto skyline'
+                    },
+                    {
+                        city: 'Malibu',
+                        averagePrice: 215,
+                        propertyCount: 43,
+                        imageUrl: '',
+                        imageAlt: 'Cliff in Malibu'
+                    },
+                    {
+                        city: 'Chicago',
+                        averagePrice: 130,
+                        propertyCount: 115,
+                        imageUrl: '',
+                        imageAlt: 'Chicago skyline'
+                    },
+                    {
+                        city: 'Seattle',
+                        averagePrice: 110,
+                        propertyCount: 56,
+                        imageUrl: '',
+                        imageAlt: 'Seattle skyline'
+                    }
+                ]
+            }
+        }
+    }
+</script>
