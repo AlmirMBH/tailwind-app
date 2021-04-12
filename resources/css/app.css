@@ -1,3 +1,65 @@
 @tailwind base;
 @tailwind components;
+
+/* The custom css needs to be between the components and utilities,
+   so that custom css (as utilities) can still be added in the blade.
+    Otherwise, this css would would override the css in the blade */
+
+.btn{
+    @apply inline-block px-5 py-3 rounded-lg text-sm uppercase tracking-wider font-semibold;
+}
+
+.btn:focus{
+    @apply outline-none;
+    /*     shadow-outline class not recognized */
+}
+
+.btn-indigo{
+    /*sm, lg, hover not supported yet*/
+    @apply inline-block bg-indigo-500 text-white;
+}
+
+.btn-indigo:hover{
+    @apply bg-indigo-400;
+}
+
+.btn-indigo:active{
+    @apply bg-indigo-600;
+}
+
+
+.btn-gray{
+    /*sm, lg, hover not supported yet*/
+    @apply inline-block bg-gray-400 text-gray-800;
+}
+
+.btn-gray:hover{
+    @apply bg-gray-300;
+}
+
+.btn-gray:active{
+    @apply bg-gray-500;
+}
+
+
+/* The block of code below can be used but there
+   is a tailwind way of doing it via @screen below */
+
+/*
+@media (min-width: 640px){
+    .btn-indigo{
+        @apply text-base;
+    }
+}
+*/
+
+/*
+@screen sm{
+/*
+    .btn-indigo{
+        @apply text-base;
+    }
+}
+*/
+
 @tailwind utilities;
